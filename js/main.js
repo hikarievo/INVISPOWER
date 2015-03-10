@@ -90,11 +90,11 @@ function batUpdate(){
     col = ["#316d08","#60b939", "#51aa31", "#64ce11", "#255405"];
   }
   $("#battery").css("background-image","linear-gradient(to right, transparent 5%, "+col[0]+" 5%, "+col[0]+" 7%, "+col[1]+" 8%, "+col[1]+" 10%, "+col[2]+" 11%, "+col[2]+" "+ (charge-3) +"%, "+col[3]+" "+ (charge-2) +"%, "+col[3]+" "+ charge +"%, "+col[4]+" "+ charge +"%, black "+ (charge+5) +"%, black 95%, transparent 95%), linear-gradient(to bottom, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.4) 4%, rgba(255,255,255,0.2) 7%, rgba(255,255,255,0.2) 14%, rgba(255,255,255,0.8) 14%, rgba(255,255,255,0.2) 40%, rgba(255,255,255,0) 41%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.2) 80%, rgba(255,255,255,0.4) 86%, rgba(255,255,255,0.6) 90%, rgba(255,255,255,0.1) 92%, rgba(255,255,255,0.1) 95%, rgba(255,255,255,0.5) 98%)");
-  $('.battery p').html(Math.floor((charge - 8) / 0.81 ) + "%");
+  $('.battery p').html(Math.floor((charge - 8) / 0.83 ) + "%");
 }
 function showOff(){
   charging = setInterval(function(){
-    if(charge >= 89){
+    if(charge >= 91){
       clearTimeout(charging);
     }else{
       charge++;
