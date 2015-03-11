@@ -432,6 +432,33 @@ a {
   display: inline-block;
   width: 100%;
 }
+.practice .from-top {
+  transform: translate3D(0, -50px, 0);
+}
+.practice .from-left {
+  transform: translate3D(-50px, 0, 0);
+}
+.practice .from-right {
+  transform: translate3D(50px, 0, 0);
+}
+.practice .delay-1 {
+  transition-delay: 400ms;
+}
+.practice .delay-2 {
+  transition-delay: 800ms;
+}
+.practice .delay-3 {
+  transition-delay: 1200ms;
+}
+.practice img {
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 500ms;
+}
+.practice.active img {
+  opacity: 1;
+  transform: none;
+}
 .contact h2 {
   color: #6699ff;
   font-weight: 400;
