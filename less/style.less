@@ -352,9 +352,31 @@ a{text-decoration: none;}
     color:#6699ff;
     font-weight: 400;
     font-size: 24px;
+    transform: scale(0,0);
+    transition: all 1s .5s;
+    transform-origin: 20%;
+  }
+  h3{
+    transition-delay: 1.6s;
   }
   p{
     color: white;
+    opacity: 0;
+    transition: all 1s 1.2s;
+  }
+  img{
+    opacity: 0;
+    transform: translate3D(-300px,0,0) scale(0,0);
+    transition: all 1s 2s;
+  }
+  &.active{
+    h2,h3{
+      transform: none;
+    }
+    p,img{
+      opacity: 1;
+      transform: none;
+    }
   }
   .warp div{
     margin: 80px 0;
@@ -371,11 +393,45 @@ a{text-decoration: none;}
   ul{
     text-align: justify;
     li{
-      display: inline;
+      display: inline-block;
+      position: relative;
       list-style: none;
       &.stretch{
         display: inline-block;
         width: 100%;
+      }
+      &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 8px;
+        background: transparent;
+        transition: all .3s;
+      }
+      &:after{
+        content: attr(data-name);
+        position: absolute;
+        bottom: 1em;
+        left: 1em;
+        font-size: 1.2em;
+        color: white;
+        text-shadow: #111 1px 1px;
+        transform: translate3D(0,10px,0);
+        transition: all .3s;
+        opacity: 0;
+        
+      }
+      &:hover{
+        &:before{
+          background: rgba(0,0,0,.5);
+        }
+        &:after{
+          opacity: 1;
+          transform: none;
+        }
       }
     }
   }
@@ -385,9 +441,9 @@ a{text-decoration: none;}
   .from-top { transform: translate3D(0, -@displacement, 0); }
   .from-left { transform: translate3D(-@displacement, 0, 0); }
   .from-right { transform: translate3D(@displacement, 0, 0); }
-  .delay-1 { transition-delay: @delay; }
-  .delay-2 { transition-delay: @delay*2; }
-  .delay-3 { transition-delay: @delay*3; }
+  &.active .delay-1 { transition-delay: @delay; }
+  &.active .delay-2 { transition-delay: @delay*2; }
+  &.active .delay-3 { transition-delay: @delay*3; }
   img {
     opacity: 0;
     transition-property: all;
