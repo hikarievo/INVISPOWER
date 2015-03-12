@@ -174,17 +174,18 @@ a{text-decoration: none;}
     font-size: 18px;
     color: #6699ff;
   }
+    
+  &.active .battery {
+    transition: all .5s ease-in-out 700ms;
+    transform: translate3D(-100px,-100px,0);
+    opacity: 1;
+  }
   .battery{
     position: absolute;
     right: -100px;
     bottom: -100px;
     opacity: 0;
-    transition: all .5s ease-in-out;
-    
-    &.active{
-      transform: translate3D(-100px,-100px,0);
-      opacity: 1;
-    }
+    transition: all 0 700ms;
     p{
       position: absolute;
       left: 50%;
@@ -283,6 +284,12 @@ a{text-decoration: none;}
       margin: 50px auto 80px;
     }
   }
+  &.active .warp div{transition: all .5s ease-out 700ms;}
+  &.active .effective{transform: translate3D(-480px,75px,0);}
+  &.active .cost{transform: translate3D(-380px,-220px,0);}
+  &.active .scale{transform: translate3D(0,-400px,0);}
+  &.active .thin{transform: translate3D(380px,-220px,0);}
+  &.active .stable{transform: translate3D(480px,75px,0);}
   .warp div{
     position: absolute;
     top: 50%;
@@ -290,8 +297,8 @@ a{text-decoration: none;}
     margin-left: -120px;
     font-size: 15px;
     line-height: 1.7em;
-    transition: all .5s ease-out;
     white-space: nowrap;
+    transition: all 0 700ms;
     img{vertical-align: middle;}
     span{margin: 0 20px;transform: translate3D(0,0,0);}
     &.effective{
@@ -300,7 +307,6 @@ a{text-decoration: none;}
         vertical-align: middle;
         color: #83b444;
       }
-      &.active{transform: translate3D(-480px,75px,0);}
     }
     &.cost{
       span{
@@ -309,7 +315,7 @@ a{text-decoration: none;}
         text-align: center;
         color: #ffbc31;
       }
-      &.active{transform: translate3D(-380px,-220px,0);} 
+     
     }
     &.scale{
       margin-left: -70px;
@@ -322,7 +328,6 @@ a{text-decoration: none;}
           white-space: pre;
         }
       }
-      &.active{transform: translate3D(0,-400px,0);}
     }
     &.thin{
       span{
@@ -330,7 +335,6 @@ a{text-decoration: none;}
         vertical-align: middle;
         color: #04cbce;
       }
-      &.active{transform: translate3D(380px,-220px,0);}
     }
     &.stable{
       span{
@@ -338,7 +342,7 @@ a{text-decoration: none;}
         vertical-align: middle;
         color: #7eabf5;
       }
-      &.active{transform: translate3D(480px,75px,0);}
+      
     }
   }
 }
@@ -353,29 +357,36 @@ a{text-decoration: none;}
     font-weight: 400;
     font-size: 24px;
     transform: scale(0,0);
-    transition: all 1s .5s;
+    transition: all 0 700ms;
     transform-origin: 20%;
-  }
-  h3{
-    transition-delay: 1.6s;
   }
   p{
     color: white;
     opacity: 0;
-    transition: all 1s 1.2s;
+    transition: all 0 700ms;
   }
   img{
     opacity: 0;
     transform: translate3D(-300px,0,0) scale(0,0);
-    transition: all 1s 2s;
+    transition: all 0 700ms;
   }
   &.active{
     h2,h3{
       transform: none;
+      transition: all 1s .5s;
     }
-    p,img{
+    h3{
+      transition-delay: 1.6s;
+    }
+    p {
       opacity: 1;
       transform: none;
+      transition: all 1s 1.2s;
+    }
+    img{
+      opacity: 1;
+      transform: none;
+      transition: all 1s 2s;
     }
   }
   .warp div{
@@ -389,6 +400,9 @@ a{text-decoration: none;}
   }
 }
 .practice{
+  h2 {
+    color:#6699ff;
+  }
   font-size: 15px;
   ul{
     text-align: justify;
@@ -511,9 +525,9 @@ a{text-decoration: none;}
     .wireless .battery{
       transform: scale(.75, .75);
       transform-origin: right bottom;
-      &.active{
-        transform: translate3D(-120px, -130px, 0) scale(.75, .75);
-      }
+    }
+    .wireless.active .battery{
+      transform: translate3D(-120px, -130px, 0) scale(.75, .75);
     }
     .feature{
       background-size: 600px;
@@ -530,18 +544,18 @@ a{text-decoration: none;}
         }
       }
       .warp{
-        div{
-          margin-left: -80px;
+        div, div.scale{
+          margin-left: -110px;
           img{
             width: 82px;
           }
-          &.effective.active{transform: translate3D(-340px, 75px, 0);}
-          &.stable.active{transform: translate3D(340px, 75px, 0);}
-          &.cost.active{transform: translate3D(-260px, -120px, 0);}
-          &.thin.active{transform: translate3D(260px, -120px, 0);}
-          &.scale.active{transform: translate3D(15px, -250px, 0);}
         }
       }
+      &.active .effective{transform: translate3D(-360px, 75px, 0);}
+      &.active .stable{transform: translate3D(360px, 75px, 0);}
+      &.active .cost{transform: translate3D(-290px, -120px, 0);}
+      &.active .thin{transform: translate3D(290px, -120px, 0);}
+      &.active .scale{transform: translate3D(15px, -270px, 0);}
     }
     .practice{
       img{

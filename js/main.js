@@ -55,11 +55,11 @@ $(document).ready(function() {
             var loadedSection = $(this);
 
             if(index == 2){
-              $('.wireless .battery').addClass('active');
+              //$('.wireless .battery').addClass('active');
               showOff();
             }
             if(index == 3){
-              $('.feature div div').addClass('active');
+              //$('.feature div div').addClass('active');
             }
         },
         onLeave: function(index, nextIndex, direction){
