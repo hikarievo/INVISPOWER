@@ -12,12 +12,12 @@ $(document).ready(function() {
         slidesNavPosition: 'bottom',
 
         //Scrolling
-        css3: true,
+        css3: false,
         scrollingSpeed: 700,
         autoScrolling: true,
         fitToSection: true,
         scrollBar: false,
-        easing: 'easeInOutCubic',
+        easing: 'swing',
         easingcss3: 'ease',
         loopBottom: false,
         loopTop: false,
