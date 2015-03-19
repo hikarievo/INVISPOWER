@@ -50,12 +50,25 @@ $(document).ready(function() {
         afterResize: function(){},
         afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
         onSlideLeave: function(anchorLink, index, slideIndex, direction){},
-        
         afterLoad: function(anchorLink, index){
             var loadedSection = $(this);
-
+            if(index == 1){
+            	$('.home h1').css('opacity',1) ;
+            	$('.home h1').css('-webkit-transition','opacity 1.8s') ;
+            	$('.home h1').css('transition','opacity 1.8s') ;
+            	$('.home strong').css('opacity',1) ;
+            	$('.home strong').css('-webkit-transition','opacity 1.8s .6s') ;
+            	$('.home strong').css('transition','opacity 1.8s .6s') ;
+            	$('.home a').css('opacity',1) ;
+            	$('.home a').css('-webkit-transition','opacity 1.8s 1s') ;
+            	$('.home a').css('transition','opacity 1.8s 1s') ;
+            	$('.wireless').css('background-color','rgba(255,255,255,0)');
+            }
+            
             if(index == 2){
               //$('.wireless .battery').addClass('active');
+              $(".battery").css('display','block') ;
+              $('.wireless').css('background-color','rgba(255,255,255,0)');
               showOff();
             }
             if(index == 3){
@@ -64,7 +77,11 @@ $(document).ready(function() {
         },
         onLeave: function(index, nextIndex, direction){
             var leavingSection = $(this);
+        	if(index == 1){
+            	$('.home strong,.home h1,.home a').css('opacity',0) ;
+            }
             if(index == 2){
+              $(".battery").css('display','none') ;
               clearInterval(charging);
             }
         },
@@ -99,4 +116,5 @@ function showOff(){
       batUpdate();
     }
   },100);
+
 }
