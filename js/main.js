@@ -62,12 +62,12 @@ $(document).ready(function() {
             	$('.home a').css('opacity',1) ;
             	$('.home a').css('-webkit-transition','opacity 1.8s 1s') ;
             	$('.home a').css('transition','opacity 1.8s 1s') ;
-            	$('.wireless').css('background-color','rgba(255,255,255,0)');
+            	// $('.wireless').css('background-color','rgba(255,255,255,0)');
             }
             
             if(index == 2){
               //$('.wireless .battery').addClass('active');
-              $(".battery").css('display','block') ;
+              // $(".battery").css('display','block') ;
               $('.wireless').css('background-color','rgba(255,255,255,0)');
               showOff();
             }
@@ -78,10 +78,11 @@ $(document).ready(function() {
         onLeave: function(index, nextIndex, direction){
             var leavingSection = $(this);
         	if(index == 1){
+        		// $(".battery").css('display','none') ;
             	$('.home strong,.home h1,.home a').css('opacity',0) ;
             }
             if(index == 2){
-              $(".battery").css('display','none') ;
+              // $(".battery").css('display','none') ;
               clearInterval(charging);
             }
         },
